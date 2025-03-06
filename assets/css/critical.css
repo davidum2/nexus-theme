@@ -1,0 +1,77 @@
+/* Critical CSS para carga inicial rápida */
+:root {
+    --color-primary: #3d5afe;
+    --color-primary-dark: #0a2afa;
+    --color-secondary: #00c853;
+    --color-text: #212121;
+    --color-text-light: #757575;
+    --color-background: #ffffff;
+    --font-primary: 'Inter var', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-heading: 'Inter var', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    --container-width: 1200px;
+    --header-height: 80px;
+  }
+
+  /* Reset básico */
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: var(--font-primary);
+    color: var(--color-text);
+    background-color: var(--color-background);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Tipografía básica */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 0.5em;
+  }
+
+  /* Header básico */
+  .site-header {
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 100;
+  }
+
+  .site-branding {
+    display: flex;
+    align-items: center;
+  }
+
+  /* Menú principal */
+  .main-navigation {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+  }
+
+  /* Contenedor principal */
+  .site-content {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  /* Media queries mínimos */
+  @media (max-width: 768px) {
+    .site-header {
+      height: 60px;
+      padding: 0 1rem;
+    }
+
+    .main-navigation {
+      display: none;
+    }
+  }
