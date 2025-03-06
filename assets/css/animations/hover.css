@@ -1,0 +1,532 @@
+/**
+ * Hover Effects
+ *
+ * Efectos de hover para elementos interactivos en el tema Nexus.
+ */
+
+/* Variables específicas para efectos hover */
+:root {
+    --hover-transition: 0.3s ease;
+    --hover-shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --hover-shadow-md: 0 10px 15px rgba(0, 0, 0, 0.1);
+    --hover-shadow-lg: 0 20px 25px rgba(0, 0, 0, 0.1);
+    --hover-lift-sm: translateY(-2px);
+    --hover-lift-md: translateY(-5px);
+    --hover-lift-lg: translateY(-10px);
+    --hover-scale-sm: scale(1.02);
+    --hover-scale-md: scale(1.05);
+    --hover-scale-lg: scale(1.1);
+    --hover-rotate-sm: rotate(2deg);
+    --hover-rotate-md: rotate(5deg);
+    --hover-rotate-lg: rotate(10deg);
+  }
+
+  /* Configuración base para todos los efectos hover */
+  [class*="hover-"] {
+    position: relative;
+    transition: all var(--hover-transition);
+  }
+
+  /* Efecto de elevación (lift) */
+  .hover-lift {
+    transition: transform var(--hover-transition), box-shadow var(--hover-transition);
+  }
+
+  .hover-lift:hover {
+    transform: var(--hover-lift-sm);
+    box-shadow: var(--hover-shadow-sm);
+  }
+
+  .hover-lift-md:hover {
+    transform: var(--hover-lift-md);
+    box-shadow: var(--hover-shadow-md);
+  }
+
+  .hover-lift-lg:hover {
+    transform: var(--hover-lift-lg);
+    box-shadow: var(--hover-shadow-lg);
+  }
+
+  /* Efecto de escala */
+  .hover-scale {
+    transition: transform var(--hover-transition);
+  }
+
+  .hover-scale:hover {
+    transform: var(--hover-scale-sm);
+  }
+
+  .hover-scale-md:hover {
+    transform: var(--hover-scale-md);
+  }
+
+  .hover-scale-lg:hover {
+    transform: var(--hover-scale-lg);
+  }
+
+  /* Efecto de rotación */
+  .hover-rotate {
+    transition: transform var(--hover-transition);
+  }
+
+  .hover-rotate:hover {
+    transform: var(--hover-rotate-sm);
+  }
+
+  .hover-rotate-md:hover {
+    transform: var(--hover-rotate-md);
+  }
+
+  .hover-rotate-lg:hover {
+    transform: var(--hover-rotate-lg);
+  }
+
+  /* Efecto de rotación con perspectiva */
+  .hover-tilt {
+    transition: transform var(--hover-transition);
+    transform-style: preserve-3d;
+    perspective: 1000px;
+  }
+
+  .hover-tilt:hover {
+    transform: rotateX(5deg) rotateY(5deg);
+  }
+
+  .hover-tilt-left:hover {
+    transform: rotateY(-5deg);
+  }
+
+  .hover-tilt-right:hover {
+    transform: rotateY(5deg);
+  }
+
+  .hover-tilt-up:hover {
+    transform: rotateX(-5deg);
+  }
+
+  .hover-tilt-down:hover {
+    transform: rotateX(5deg);
+  }
+
+  /* Efecto de brillo (shine) */
+  .hover-shine {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hover-shine::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 100%);
+    transform: skewX(-25deg);
+    transition: left 0.7s ease;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .hover-shine:hover::before {
+    left: 125%;
+  }
+
+  /* Efecto de sombra pulsante */
+  .hover-pulse-shadow {
+    transition: box-shadow var(--hover-transition);
+  }
+
+  .hover-pulse-shadow:hover {
+    animation: pulse-shadow 1.5s infinite;
+  }
+
+  @keyframes pulse-shadow {
+    0% {
+      box-shadow: 0 0 0 0 rgba(var(--color-primary-500-rgb), 0.4);
+    }
+    70% {
+      box-shadow: 0 0 0 10px rgba(var(--color-primary-500-rgb), 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(var(--color-primary-500-rgb), 0);
+    }
+  }
+
+  /* Efecto de subrayado */
+  .hover-underline {
+    position: relative;
+    text-decoration: none;
+  }
+
+  .hover-underline::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: currentColor;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease-out;
+  }
+
+  .hover-underline:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+
+  /* Variante de subrayado que viene desde el centro */
+  .hover-underline-center::after {
+    transform-origin: center;
+    transform: scaleX(0);
+  }
+
+  .hover-underline-center:hover::after {
+    transform: scaleX(1);
+  }
+
+  /* Efecto de zoom de imagen */
+  .hover-zoom-img {
+    overflow: hidden;
+  }
+
+  .hover-zoom-img img {
+    transition: transform var(--hover-transition);
+  }
+
+  .hover-zoom-img:hover img {
+    transform: var(--hover-scale-md);
+  }
+
+  .hover-zoom-img-lg:hover img {
+    transform: var(--hover-scale-lg);
+  }
+
+  /* Efecto de opacidad */
+  .hover-opacity {
+    transition: opacity var(--hover-transition);
+  }
+
+  .hover-opacity:hover {
+    opacity: 0.8;
+  }
+
+  .hover-opacity-more:hover {
+    opacity: 0.6;
+  }
+
+  /* Efecto de revelar contenido en hover */
+  .hover-reveal {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hover-reveal-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 1rem;
+    transform: translateY(100%);
+    transition: transform var(--hover-transition);
+  }
+
+  .hover-reveal:hover .hover-reveal-content {
+    transform: translateY(0);
+  }
+
+  /* Variante para revelar desde arriba */
+  .hover-reveal-top .hover-reveal-content {
+    top: 0;
+    bottom: auto;
+    transform: translateY(-100%);
+  }
+
+  /* Efecto de filtro de imagen */
+  .hover-filter {
+    transition: filter var(--hover-transition);
+  }
+
+  .hover-filter-grayscale:hover {
+    filter: grayscale(100%);
+  }
+
+  .hover-filter-blur:hover {
+    filter: blur(3px);
+  }
+
+  .hover-filter-brightness:hover {
+    filter: brightness(1.2);
+  }
+
+  .hover-filter-contrast:hover {
+    filter: contrast(1.2);
+  }
+
+  .hover-filter-sepia:hover {
+    filter: sepia(0.7);
+  }
+
+  /* Efecto de cambio de color */
+  .hover-color-shift {
+    transition: color var(--hover-transition), background-color var(--hover-transition);
+  }
+
+  .hover-color-shift:hover {
+    color: var(--color-white);
+    background-color: var(--color-primary-500);
+  }
+
+  .hover-color-shift-subtle:hover {
+    color: var(--color-primary-500);
+  }
+
+  /* Efecto de borde expandible */
+  .hover-border-expand {
+    position: relative;
+    z-index: 1;
+  }
+
+  .hover-border-expand::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-primary-500);
+    transition: height var(--hover-transition);
+  }
+
+  .hover-border-expand:hover::after {
+    height: 100%;
+    opacity: 0.1;
+  }
+
+  /* Efecto de borde en esquinas */
+  .hover-border-corners {
+    position: relative;
+  }
+
+  .hover-border-corners::before,
+  .hover-border-corners::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    transition: width 0.3s, height 0.3s, opacity 0.3s;
+  }
+
+  .hover-border-corners::before {
+    top: 0;
+    left: 0;
+    border-top: 2px solid var(--color-primary-500);
+    border-left: 2px solid var(--color-primary-500);
+  }
+
+  .hover-border-corners::after {
+    bottom: 0;
+    right: 0;
+    border-bottom: 2px solid var(--color-primary-500);
+    border-right: 2px solid var(--color-primary-500);
+  }
+
+  .hover-border-corners:hover::before,
+  .hover-border-corners:hover::after {
+    width: 10px;
+    height: 10px;
+    opacity: 1;
+  }
+
+  /* Efecto de botón push */
+  .hover-push {
+    transition: transform var(--hover-transition);
+  }
+
+  .hover-push:active {
+    transform: scale(0.95);
+  }
+
+  /* Efecto de glow (resplandor) */
+  .hover-glow {
+    transition: box-shadow var(--hover-transition);
+  }
+
+  .hover-glow:hover {
+    box-shadow: 0 0 10px var(--color-primary-300), 0 0 20px var(--color-primary-100);
+  }
+
+  /* Efecto de flecha en enlace */
+  .hover-arrow {
+    display: inline-flex;
+    align-items: center;
+    transition: gap var(--hover-transition);
+    gap: 0.5rem;
+  }
+
+  .hover-arrow::after {
+    content: '→';
+    display: inline-block;
+    transition: transform var(--hover-transition);
+  }
+
+  .hover-arrow:hover {
+    gap: 0.75rem;
+  }
+
+  .hover-arrow:hover::after {
+    transform: translateX(3px);
+  }
+
+  /* Efecto de rebote */
+  .hover-bounce:hover {
+    animation: hover-bounce-effect 0.5s ease-in-out;
+  }
+
+  @keyframes hover-bounce-effect {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-10px);
+    }
+    60% {
+      transform: translateY(-5px);
+    }
+  }
+
+  /* Efecto de oscuridad en imagen */
+  .hover-darken {
+    position: relative;
+  }
+
+  .hover-darken::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0);
+    transition: background-color var(--hover-transition);
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .hover-darken:hover::before {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+
+  .hover-darken-more:hover::before {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  /* Efecto de aclarado en imagen */
+  .hover-lighten::before {
+    background-color: rgba(255, 255, 255, 0);
+  }
+
+  .hover-lighten:hover::before {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .hover-lighten-more:hover::before {
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+
+  /* Efecto de rotación 3D de tarjeta */
+  .hover-flip-card {
+    perspective: 1000px;
+    width: 100%;
+    height: 300px; /* Ajustar según necesidades */
+  }
+
+  .hover-flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+  }
+
+  .hover-flip-card:hover .hover-flip-card-inner {
+    transform: rotateY(180deg);
+  }
+
+  .hover-flip-card-front,
+  .hover-flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+  }
+
+  .hover-flip-card-front {
+    background-color: var(--color-white);
+    color: var(--color-dark);
+  }
+
+  .hover-flip-card-back {
+    background-color: var(--color-primary-500);
+    color: var(--color-white);
+    transform: rotateY(180deg);
+  }
+
+  /* Efecto de desenfoque al pasar el cursor */
+  .hover-blur-siblings:hover ~ * {
+    filter: blur(2px);
+    transition: filter var(--hover-transition);
+  }
+
+  /* Efecto de enfoque del elemento al pasar el cursor */
+  .parent-hover:hover .child-focus {
+    opacity: 0.8;
+    transition: opacity var(--hover-transition);
+  }
+
+  .parent-hover .child-focus {
+    opacity: 1;
+  }
+
+  /* Ajuste para navegadores que no soportan :has() */
+  @supports not (selector(:has(.child))) {
+    .parent-hover .child-focus {
+      transition: opacity var(--hover-transition);
+    }
+  }
+
+  /* Con soporte para :has() */
+  @supports (selector(:has(.child))) {
+    *:has(> .child-focus:hover) .child-focus:not(:hover) {
+      opacity: 0.5;
+    }
+  }
+
+  /* Soporte para reducción de movimiento */
+  @media (prefers-reduced-motion: reduce) {
+    [class*="hover-"] {
+      transition: none !important;
+      animation: none !important;
+      transform: none !important;
+    }
+
+    [class*="hover-"]::before,
+    [class*="hover-"]::after {
+      transition: none !important;
+      animation: none !important;
+    }
+
+    .hover-zoom-img img,
+    .hover-flip-card-inner,
+    .hover-arrow::after {
+      transition: none !important;
+      animation: none !important;
+    }
+  }

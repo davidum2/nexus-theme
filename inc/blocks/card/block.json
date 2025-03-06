@@ -1,0 +1,101 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 2,
+    "name": "nexus/card",
+    "title": "Nexus Card",
+    "category": "design",
+    "icon": "cover-image",
+    "description": "A customizable card block with various styles and animations.",
+    "keywords": ["card", "box", "container", "feature"],
+    "version": "1.0.0",
+    "textdomain": "nexus",
+    "supports": {
+      "html": false,
+      "align": ["wide", "full"],
+      "color": {
+        "background": true,
+        "text": true,
+        "gradients": true
+      },
+      "spacing": {
+        "margin": true,
+        "padding": true
+      }
+    },
+    "attributes": {
+      "title": {
+        "type": "string",
+        "default": "Card Title"
+      },
+      "content": {
+        "type": "string",
+        "default": "This is a customizable card that showcases the advanced CSS features of the Nexus theme."
+      },
+      "mediaId": {
+        "type": "number"
+      },
+      "mediaUrl": {
+        "type": "string"
+      },
+      "mediaAlt": {
+        "type": "string",
+        "default": ""
+      },
+      "imagePosition": {
+        "type": "string",
+        "default": "top"
+      },
+      "cardStyle": {
+        "type": "string",
+        "default": "default"
+      },
+      "hoverEffect": {
+        "type": "string",
+        "default": "none"
+      },
+      "animationEffect": {
+        "type": "string",
+        "default": "none"
+      },
+      "aspectRatio": {
+        "type": "string",
+        "default": "16-9"
+      },
+      "buttonText": {
+        "type": "string",
+        "default": "Learn More"
+      },
+      "buttonUrl": {
+        "type": "string",
+        "default": "#"
+      },
+      "buttonStyle": {
+        "type": "string",
+        "default": "primary"
+      },
+      "showButton": {
+        "type": "boolean",
+        "default": true
+      },
+      "borderRadius": {
+        "type": "number",
+        "default": 8
+      },
+      "boxShadow": {
+        "type": "boolean",
+        "default": true
+      },
+      "borderWidth": {
+        "type": "number",
+        "default": 0
+      },
+      "borderColor": {
+        "type": "string",
+        "default": "#e0e0e0"
+      }
+    },
+    "editorScript": "file:./edit.js",
+    "editorStyle": "file:./editor.css",
+    "style": "file:./style.css",
+    "script": "file:./view.js"
+  }

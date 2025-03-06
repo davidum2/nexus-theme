@@ -1,0 +1,459 @@
+/**
+ * Transitions and Animations
+ *
+ * Transiciones y animaciones para el tema Nexus, incluyendo
+ * soporte para View Transitions API.
+ */
+
+ :root {
+    /* Variables para transiciones */
+    --transition-fast: 150ms;
+    --transition-normal: 300ms;
+    --transition-slow: 500ms;
+
+    --transition-timing-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+    --transition-timing-smooth: cubic-bezier(0.65, 0, 0.35, 1);
+    --transition-timing-decelerate: cubic-bezier(0, 0, 0.2, 1);
+    --transition-timing-accelerate: cubic-bezier(0.8, 0, 1, 1);
+  }
+
+  /* Transiciones básicas */
+  .transition-all {
+    transition-property: all;
+    transition-timing-function: ease;
+    transition-duration: var(--transition-normal);
+  }
+
+  .transition-colors {
+    transition-property: color, background-color, border-color, fill, stroke;
+    transition-timing-function: ease;
+    transition-duration: var(--transition-normal);
+  }
+
+  .transition-opacity {
+    transition-property: opacity;
+    transition-timing-function: ease;
+    transition-duration: var(--transition-normal);
+  }
+
+  .transition-transform {
+    transition-property: transform;
+    transition-timing-function: ease;
+    transition-duration: var(--transition-normal);
+  }
+
+  .transition-shadow {
+    transition-property: box-shadow;
+    transition-timing-function: ease;
+    transition-duration: var(--transition-normal);
+  }
+
+  /* Duración de transiciones */
+  .duration-fast {
+    transition-duration: var(--transition-fast);
+  }
+
+  .duration-normal {
+    transition-duration: var(--transition-normal);
+  }
+
+  .duration-slow {
+    transition-duration: var(--transition-slow);
+  }
+
+  /* Funciones de temporización */
+  .timing-linear {
+    transition-timing-function: linear;
+  }
+
+  .timing-ease {
+    transition-timing-function: ease;
+  }
+
+  .timing-ease-in {
+    transition-timing-function: ease-in;
+  }
+
+  .timing-ease-out {
+    transition-timing-function: ease-out;
+  }
+
+  .timing-ease-in-out {
+    transition-timing-function: ease-in-out;
+  }
+
+  .timing-bounce {
+    transition-timing-function: var(--transition-timing-bounce);
+  }
+
+  .timing-smooth {
+    transition-timing-function: var(--transition-timing-smooth);
+  }
+
+  .timing-decelerate {
+    transition-timing-function: var(--transition-timing-decelerate);
+  }
+
+  .timing-accelerate {
+    transition-timing-function: var(--transition-timing-accelerate);
+  }
+
+  /* Retraso de transiciones */
+  .delay-none {
+    transition-delay: 0ms;
+  }
+
+  .delay-100 {
+    transition-delay: 100ms;
+  }
+
+  .delay-200 {
+    transition-delay: 200ms;
+  }
+
+  .delay-300 {
+    transition-delay: 300ms;
+  }
+
+  .delay-500 {
+    transition-delay: 500ms;
+  }
+
+  .delay-700 {
+    transition-delay: 700ms;
+  }
+
+  .delay-1000 {
+    transition-delay: 1000ms;
+  }
+
+  /* Efectos de transición */
+  .transition-fade {
+    transition: opacity var(--transition-normal) ease;
+  }
+
+  .transition-fade-enter,
+  .transition-fade-exit-active {
+    opacity: 0;
+  }
+
+  .transition-fade-enter-active,
+  .transition-fade-exit {
+    opacity: 1;
+  }
+
+  .transition-slide-up {
+    transition: opacity var(--transition-normal) ease,
+                transform var(--transition-normal) var(--transition-timing-decelerate);
+  }
+
+  .transition-slide-up-enter,
+  .transition-slide-up-exit-active {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  .transition-slide-up-enter-active,
+  .transition-slide-up-exit {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .transition-slide-down {
+    transition: opacity var(--transition-normal) ease,
+                transform var(--transition-normal) var(--transition-timing-decelerate);
+  }
+
+  .transition-slide-down-enter,
+  .transition-slide-down-exit-active {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  .transition-slide-down-enter-active,
+  .transition-slide-down-exit {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .transition-scale {
+    transition: opacity var(--transition-normal) ease,
+                transform var(--transition-normal) var(--transition-timing-bounce);
+  }
+
+  .transition-scale-enter,
+  .transition-scale-exit-active {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  .transition-scale-enter-active,
+  .transition-scale-exit {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  /* Animaciones para el loading state */
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+      animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+    }
+    50% {
+      transform: translateY(-25%);
+      animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+    }
+  }
+
+  /* Clases de animación */
+  .animate-spin {
+    animation: spin 1s linear infinite;
+  }
+
+  .animate-pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .animate-bounce {
+    animation: bounce 1s infinite;
+  }
+
+  /* Animaciones personalizadas */
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fade-out {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+  @keyframes slide-in-up {
+    from {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes slide-in-down {
+    from {
+      transform: translateY(-20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes slide-in-left {
+    from {
+      transform: translateX(-20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes slide-in-right {
+    from {
+      transform: translateX(20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes scale-in {
+    from {
+      transform: scale(0.95);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  .animate-fade-in {
+    animation: fade-in var(--transition-normal) ease forwards;
+  }
+
+  .animate-fade-out {
+    animation: fade-out var(--transition-normal) ease forwards;
+  }
+
+  .animate-slide-in-up {
+    animation: slide-in-up var(--transition-normal) var(--transition-timing-decelerate) forwards;
+  }
+
+  .animate-slide-in-down {
+    animation: slide-in-down var(--transition-normal) var(--transition-timing-decelerate) forwards;
+  }
+
+  .animate-slide-in-left {
+    animation: slide-in-left var(--transition-normal) var(--transition-timing-decelerate) forwards;
+  }
+
+  .animate-slide-in-right {
+    animation: slide-in-right var(--transition-normal) var(--transition-timing-decelerate) forwards;
+  }
+
+  .animate-scale-in {
+    animation: scale-in var(--transition-normal) var(--transition-timing-bounce) forwards;
+  }
+
+  /* Soporte para animaciones secuenciales (staggered) */
+  .stagger-items > * {
+    opacity: 0;
+  }
+
+  .stagger-items > *:nth-child(1) { animation-delay: 0.1s; }
+  .stagger-items > *:nth-child(2) { animation-delay: 0.2s; }
+  .stagger-items > *:nth-child(3) { animation-delay: 0.3s; }
+  .stagger-items > *:nth-child(4) { animation-delay: 0.4s; }
+  .stagger-items > *:nth-child(5) { animation-delay: 0.5s; }
+  .stagger-items > *:nth-child(6) { animation-delay: 0.6s; }
+  .stagger-items > *:nth-child(7) { animation-delay: 0.7s; }
+  .stagger-items > *:nth-child(8) { animation-delay: 0.8s; }
+  .stagger-items > *:nth-child(9) { animation-delay: 0.9s; }
+  .stagger-items > *:nth-child(10) { animation-delay: 1s; }
+
+  .stagger-items.animate > * {
+    animation: fade-in var(--transition-normal) ease forwards;
+  }
+
+  /* Soporte para View Transitions API */
+  @supports (view-transition-name: none) {
+    /* Aplicamos nombres de transición a elementos clave */
+    .page-content {
+      view-transition-name: page-content;
+    }
+
+    .site-header {
+      view-transition-name: site-header;
+    }
+
+    .site-footer {
+      view-transition-name: site-footer;
+    }
+
+    .hero-section {
+      view-transition-name: hero;
+    }
+
+    .post-featured-image {
+      view-transition-name: featured-image;
+    }
+
+    .menu-item {
+      view-transition-name: menu-item;
+    }
+
+    .card {
+      view-transition-name: card;
+    }
+
+    /* Estilizando las transiciones de vista */
+    ::view-transition-old(page-content),
+    ::view-transition-new(page-content) {
+      animation-duration: var(--transition-normal);
+    }
+
+    ::view-transition-old(page-content) {
+      animation-name: fade-out;
+    }
+
+    ::view-transition-new(page-content) {
+      animation-name: fade-in;
+    }
+
+    ::view-transition-old(featured-image),
+    ::view-transition-new(featured-image) {
+      animation-duration: 500ms;
+      height: 100%;
+    }
+
+    ::view-transition-old(featured-image) {
+      animation: 500ms cubic-bezier(0.4, 0, 0.2, 1) both fade-out,
+                 500ms cubic-bezier(0.4, 0, 0.2, 1) both scale-down;
+    }
+
+    ::view-transition-new(featured-image) {
+      animation: 500ms cubic-bezier(0.4, 0, 0.2, 1) both fade-in,
+                 500ms cubic-bezier(0.4, 0, 0.2, 1) both scale-up;
+    }
+
+    @keyframes scale-down {
+      from { transform: scale(1); }
+      to { transform: scale(0.9); }
+    }
+
+    @keyframes scale-up {
+      from { transform: scale(1.1); }
+      to { transform: scale(1); }
+    }
+  }
+
+  /* Reducción de movimiento para accesibilidad */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+
+    .animate-spin,
+    .animate-pulse,
+    .animate-bounce,
+    .animate-fade-in,
+    .animate-fade-out,
+    .animate-slide-in-up,
+    .animate-slide-in-down,
+    .animate-slide-in-left,
+    .animate-slide-in-right,
+    .animate-scale-in,
+    .stagger-items > * {
+      animation: none !important;
+      opacity: 1 !important;
+      transform: none !important;
+    }
+  }

@@ -1,0 +1,182 @@
+/**
+ * Nexus Card Block - Editor Styles
+ * Estilos adicionales específicos para el editor
+ */
+
+/* Añade un borde sutil cuando la tarjeta está seleccionada */
+.wp-block-nexus-card.is-selected {
+    outline: 2px dashed #3d5afe;
+    outline-offset: 4px;
+  }
+
+  /* Mejora la visualización de los controles de edición */
+  .wp-block-nexus-card .block-editor-media-placeholder {
+    min-height: 200px;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .wp-block-nexus-card .block-editor-media-placeholder .components-placeholder__label {
+    display: flex;
+    align-items: center;
+  }
+
+  .wp-block-nexus-card .block-editor-media-placeholder .components-placeholder__label svg {
+    margin-right: 8px;
+  }
+
+  /* Estilos específicos para la vista del editor */
+  .wp-block-nexus-card .nexus-card-title[contenteditable="true"]:focus,
+  .wp-block-nexus-card .nexus-card-text[contenteditable="true"]:focus {
+    outline: none;
+    border-bottom: 2px solid #3d5afe;
+    padding-bottom: 2px;
+  }
+
+  /* Panel de inspector con mejor organización */
+  .nexus-card-panel .components-panel__row {
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+
+  .nexus-card-panel .components-base-control {
+    width: 100%;
+  }
+
+  /* Añadir viñetas a los selectores de estilo */
+  .nexus-card-option {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+
+  .nexus-card-option-bullet {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    margin-right: 8px;
+    border: 1px solid #e0e0e0;
+  }
+
+  .nexus-card-option-bullet.style-default {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .nexus-card-option-bullet.style-border {
+    border: 2px solid #3d5afe;
+    box-shadow: none;
+  }
+
+  .nexus-card-option-bullet.style-flat {
+    background-color: #f5f5f5;
+    border: none;
+  }
+
+  .nexus-card-option-bullet.style-raised {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .nexus-card-option-bullet.style-minimal {
+    border: 1px dashed #e0e0e0;
+    background-color: transparent;
+  }
+
+  /* Estilos para botones en el editor */
+  .nexus-card-button-control {
+    margin-top: 16px;
+  }
+
+  /* Previsualización de efectos de hover */
+  .nexus-hover-preview {
+    margin-top: 8px;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #e0e0e0;
+    background-color: #f9f9f9;
+    text-align: center;
+    font-size: 12px;
+    color: #757575;
+  }
+
+  /* Estilos para previsualización de animaciones */
+  .nexus-animation-preview {
+    width: 40px;
+    height: 40px;
+    background-color: #3d5afe;
+    border-radius: 4px;
+    margin: 0 auto;
+  }
+
+  .nexus-animation-preview.preview-fade-in {
+    animation: previewFadeIn 2s infinite;
+  }
+
+  .nexus-animation-preview.preview-slide-up {
+    animation: previewSlideUp 2s infinite;
+  }
+
+  .nexus-animation-preview.preview-scale {
+    animation: previewScale 2s infinite;
+  }
+
+  @keyframes previewFadeIn {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
+  }
+
+  @keyframes previewSlideUp {
+    0%, 100% { transform: translateY(10px); opacity: 0; }
+    50% { transform: translateY(0); opacity: 1; }
+  }
+
+  @keyframes previewScale {
+    0%, 100% { transform: scale(0.8); opacity: 0; }
+    50% { transform: scale(1); opacity: 1; }
+  }
+
+  /* Mejora la apariencia de los paneles en el sidebar */
+  .nexus-inspector-controls .components-panel__body-title {
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  .nexus-inspector-controls .components-panel__body-toggle {
+    padding: 12px 16px;
+  }
+
+  /* Selector de posición de imagen con iconos */
+  .nexus-image-position-control {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .nexus-image-position-button {
+    width: 50px;
+    height: 36px;
+    padding: 4px;
+    border-radius: 4px;
+    border: 1px solid #e0e0e0;
+    background-color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+  }
+
+  .nexus-image-position-button:hover {
+    border-color: #3d5afe;
+  }
+
+  .nexus-image-position-button.is-active {
+    border-color: #3d5afe;
+    background-color: #f0f4ff;
+  }
+
+  .nexus-image-position-icon {
+    width: 24px;
+    height: 24px;
+    display: block;
+  }

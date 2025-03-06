@@ -1,0 +1,394 @@
+/**
+ * Scroll Animations
+ *
+ * Animaciones y efectos basados en el desplazamiento para el tema Nexus.
+ * Usa tanto JavaScript como CSS moderno para efectos de aparición y parallax.
+ */
+
+ :root {
+    --scroll-animation-duration: 0.6s;
+    --scroll-animation-offset: 100px;
+    --scroll-animation-timing: cubic-bezier(0.4, 0, 0.2, 1);
+    --parallax-factor: 0.2;
+  }
+
+  /* Clases para elementos que se animarán al hacer scroll */
+  .animate-on-scroll {
+    opacity: 0;
+    transition: opacity var(--scroll-animation-duration) var(--scroll-animation-timing),
+                transform var(--scroll-animation-duration) var(--scroll-animation-timing);
+    will-change: opacity, transform;
+  }
+
+  /* Clase añadida por JavaScript cuando el elemento es visible */
+  .animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: none !important;
+  }
+
+  /* Variantes de animaciones en scroll */
+  .animate-fade-in {
+    opacity: 0;
+  }
+
+  .animate-slide-up {
+    opacity: 0;
+    transform: translateY(var(--scroll-animation-offset));
+  }
+
+  .animate-slide-down {
+    opacity: 0;
+    transform: translateY(calc(var(--scroll-animation-offset) * -1));
+  }
+
+  .animate-slide-left {
+    opacity: 0;
+    transform: translateX(var(--scroll-animation-offset));
+  }
+
+  .animate-slide-right {
+    opacity: 0;
+    transform: translateX(calc(var(--scroll-animation-offset) * -1));
+  }
+
+  .animate-scale {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  .animate-zoom-in {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+
+  .animate-zoom-out {
+    opacity: 0;
+    transform: scale(1.2);
+  }
+
+  .animate-rotate {
+    opacity: 0;
+    transform: rotate(-10deg);
+  }
+
+  /* Delays para animaciones en secuencia */
+  .delay-100 {
+    transition-delay: 100ms;
+  }
+
+  .delay-200 {
+    transition-delay: 200ms;
+  }
+
+  .delay-300 {
+    transition-delay: 300ms;
+  }
+
+  .delay-400 {
+    transition-delay: 400ms;
+  }
+
+  .delay-500 {
+    transition-delay: 500ms;
+  }
+
+  .delay-600 {
+    transition-delay: 600ms;
+  }
+
+  .delay-700 {
+    transition-delay: 700ms;
+  }
+
+  .delay-800 {
+    transition-delay: 800ms;
+  }
+
+  .delay-900 {
+    transition-delay: 900ms;
+  }
+
+  .delay-1000 {
+    transition-delay: 1000ms;
+  }
+
+  /* Animaciones para elementos en secuencia */
+  .animate-stagger-children > * {
+    opacity: 0;
+    transition: opacity var(--scroll-animation-duration) var(--scroll-animation-timing),
+                transform var(--scroll-animation-duration) var(--scroll-animation-timing);
+    will-change: opacity, transform;
+    transform: translateY(20px);
+  }
+
+  .animate-stagger-children.is-visible > *:nth-child(1) {
+    transition-delay: 0ms;
+  }
+
+  .animate-stagger-children.is-visible > *:nth-child(2) {
+    transition-delay: 100ms;
+  }
+
+  .animate-stagger-children.is-visible > *:nth-child(3) {
+    transition-delay: 200ms;
+  }
+
+  .animate-stagger-children.is-visible > *:nth-child(4) {
+    transition-delay: 300ms;
+  }
+
+  .animate-stagger-children.is-visible > *:nth-child(5) {
+    transition-delay: 400ms;
+  }
+
+  .animate-stagger-children.is-visible > *:nth-child(6) {
+    transition-delay: 500ms;
+  }
+
+  .animate-stagger-children.is-visible > *:nth-child(7) {
+    transition-delay: 600ms;
+  }
+
+  .animate-stagger-children.is-visible > *:nth-child(8) {
+    transition-delay: 700ms;
+  }
+
+  .animate-stagger-children.is-visible > *:nth-child(9) {
+    transition-delay: 800ms;
+  }
+
+  .animate-stagger-children.is-visible > *:nth-child(10) {
+    transition-delay: 900ms;
+  }
+
+  .animate-stagger-children.is-visible > * {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Efecto parallax básico */
+  .parallax {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .parallax-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 120%;
+    background-size: cover;
+    background-position: center;
+    transform: translateY(0);
+    will-change: transform;
+  }
+
+  /* Efectos de revelación en scroll */
+  .reveal-on-scroll {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .reveal-on-scroll::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-primary-500);
+    transform: scaleX(1);
+    transform-origin: right;
+    transition: transform 1s var(--scroll-animation-timing);
+    z-index: 1;
+  }
+
+  .reveal-on-scroll > * {
+    opacity: 0;
+    transition: opacity 0.5s var(--scroll-animation-timing) 0.5s;
+  }
+
+  .reveal-on-scroll.is-visible::before {
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+
+  .reveal-on-scroll.is-visible > * {
+    opacity: 1;
+  }
+
+  /* Variante de revelación desde abajo */
+  .reveal-up-on-scroll::before {
+    transform: scaleY(1);
+    transform-origin: bottom;
+  }
+
+  .reveal-up-on-scroll.is-visible::before {
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+
+  /* Efectos modernos con Scroll-Timeline API */
+  @supports (animation-timeline: scroll()) {
+    /* Configuración para elementos que se animan con scroll nativo */
+    .scroll-animated {
+      animation-timeline: scroll();
+      animation-range: entry 10% cover 50%;
+    }
+
+    /* Animaciones específicas para Scroll-Timeline */
+    .scroll-fade-in {
+      animation-name: fade-in;
+      animation-fill-mode: both;
+      animation-timeline: scroll();
+      animation-range: entry 10% cover 50%;
+    }
+
+    .scroll-slide-up {
+      animation-name: slide-in-up;
+      animation-fill-mode: both;
+      animation-timeline: scroll();
+      animation-range: entry 10% cover 50%;
+    }
+
+    .scroll-parallax {
+      --parallax-amount: 100px;
+      animation: scroll-parallax linear;
+      animation-timeline: scroll();
+      animation-range: entry exit;
+    }
+
+    @keyframes scroll-parallax {
+      from {
+        transform: translateY(var(--parallax-amount));
+      }
+      to {
+        transform: translateY(calc(-1 * var(--parallax-amount)));
+      }
+    }
+
+    /* Efecto sticky hasta un punto */
+    .scroll-sticky-until {
+      position: sticky;
+      top: 0;
+      animation: sticky-until linear;
+      animation-timeline: scroll();
+      animation-range: entry 10% exit 50%;
+    }
+
+    @keyframes sticky-until {
+      0%, 80% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(-50px);
+      }
+    }
+
+    /* Progreso de scroll */
+    .scroll-progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      width: 100%;
+      transform-origin: 0 50%;
+      transform: scaleX(0);
+      background-color: var(--color-primary-500);
+      z-index: 9999;
+      animation: progress-grow linear;
+      animation-timeline: scroll(root);
+      animation-range: entry exit;
+    }
+
+    @keyframes progress-grow {
+      from {
+        transform: scaleX(0);
+      }
+      to {
+        transform: scaleX(1);
+      }
+    }
+
+    /* Efecto de contador con scroll */
+    .scroll-counter {
+      counter-reset: section;
+      animation: count linear;
+      animation-timeline: scroll();
+      animation-range: entry 0% exit 100%;
+    }
+
+    .scroll-counter::after {
+      content: counter(section);
+    }
+
+    @keyframes count {
+      0% { counter-increment: section 0; }
+      10% { counter-increment: section 10; }
+      20% { counter-increment: section 20; }
+      30% { counter-increment: section 30; }
+      40% { counter-increment: section 40; }
+      50% { counter-increment: section 50; }
+      60% { counter-increment: section 60; }
+      70% { counter-increment: section 70; }
+      80% { counter-increment: section 80; }
+      90% { counter-increment: section 90; }
+      100% { counter-increment: section 100; }
+    }
+  }
+
+  /* Efectos de scroll horizontal */
+  .horizontal-scroll-section {
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .horizontal-scroll-item {
+    display: inline-block;
+    white-space: normal;
+    scroll-snap-align: start;
+  }
+
+  /* Scroll snap */
+  .scroll-snap-container {
+    overflow-y: auto;
+    scroll-snap-type: y mandatory;
+    height: 100vh;
+  }
+
+  .scroll-snap-section {
+    scroll-snap-align: start;
+    height: 100vh;
+  }
+
+  /* Preferencisa de reducción de movimiento */
+  @media (prefers-reduced-motion: reduce) {
+    .animate-on-scroll,
+    .animate-stagger-children > *,
+    .reveal-on-scroll::before,
+    .reveal-on-scroll > *,
+    .parallax-bg,
+    .scroll-animated,
+    .scroll-fade-in,
+    .scroll-slide-up,
+    .scroll-parallax,
+    .scroll-sticky-until,
+    .scroll-counter,
+    .scroll-progress-bar {
+      animation: none !important;
+      transition: none !important;
+      transform: none !important;
+      opacity: 1 !important;
+    }
+
+    .scroll-snap-container,
+    .horizontal-scroll-section {
+      scroll-snap-type: none;
+    }
+  }

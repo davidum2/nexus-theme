@@ -15,29 +15,29 @@ function nexus_generate_schema()
     if (is_front_page()) {
         $schema = nexus_get_organization_schema();
     }
-
+    //TODO
     // Schema para artículos
-    elseif (is_single() && 'post' == get_post_type()) {
-        $schema = nexus_get_article_schema();
-    }
+    // elseif (is_single() && 'post' == get_post_type()) {
+    //     $schema = nexus_get_article_schema();
+    // }
 
-    // Schema para páginas
-    elseif (is_page()) {
-        $schema = nexus_get_webpage_schema();
-    }
+    // // Schema para páginas
+    // elseif (is_page()) {
+    //     $schema = nexus_get_webpage_schema();
+    // }
 
-    // Schema para archivos
-    elseif (is_archive()) {
-        $schema = nexus_get_collection_schema();
-    }
+    // // Schema para archivos
+    // elseif (is_archive()) {
+    //     $schema = nexus_get_collection_schema();
+    // }
 
-    // Schema para CPTs específicos
-    elseif (is_singular('services')) {
-        $schema = nexus_get_service_schema();
-    }
+    // // Schema para CPTs específicos
+    // elseif (is_singular('services')) {
+    //     $schema = nexus_get_service_schema();
+    // }
 
-    // Schema para breadcrumbs
-    $schema['breadcrumb'] = nexus_get_breadcrumb_schema();
+    // // Schema para breadcrumbs
+    // $schema['breadcrumb'] = nexus_get_breadcrumb_schema();
 
     // Imprimir schema en el head
     if (!empty($schema)) {

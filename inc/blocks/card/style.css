@@ -1,0 +1,311 @@
+/**
+ * Nexus Card Block - Frontend Styles
+ * Este archivo contiene los estilos para el bloque de tarjeta
+ * tanto en el frontend como en el editor.
+ */
+
+ .wp-block-nexus-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--card-bg-color, #ffffff);
+    border-radius: var(--card-border-radius, 8px);
+    overflow: hidden;
+    height: 100%;
+    transition: all 0.3s ease;
+  }
+
+  /* Variantes de posición de imagen */
+  .wp-block-nexus-card.image-position-top {
+    flex-direction: column;
+  }
+
+  .wp-block-nexus-card.image-position-bottom {
+    flex-direction: column-reverse;
+  }
+
+  .wp-block-nexus-card.image-position-left {
+    flex-direction: row;
+  }
+
+  .wp-block-nexus-card.image-position-right {
+    flex-direction: row-reverse;
+  }
+
+  @media (max-width: 768px) {
+    .wp-block-nexus-card.image-position-left,
+    .wp-block-nexus-card.image-position-right {
+      flex-direction: column;
+    }
+  }
+
+  /* Contenido de la tarjeta */
+  .nexus-card-image-container {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .nexus-card-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+
+  .wp-block-nexus-card.image-position-left .nexus-card-image-container,
+  .wp-block-nexus-card.image-position-right .nexus-card-image-container {
+    flex: 0 0 40%;
+  }
+
+  /* Aspect ratios para imágenes */
+  .nexus-card-image-container.aspect-ratio-1-1 {
+    aspect-ratio: 1 / 1;
+  }
+
+  .nexus-card-image-container.aspect-ratio-16-9 {
+    aspect-ratio: 16 / 9;
+  }
+
+  .nexus-card-image-container.aspect-ratio-4-3 {
+    aspect-ratio: 4 / 3;
+  }
+
+  .nexus-card-image-container.aspect-ratio-3-2 {
+    aspect-ratio: 3 / 2;
+  }
+
+  .nexus-card-image-container.aspect-ratio-1-1 .nexus-card-image,
+  .nexus-card-image-container.aspect-ratio-16-9 .nexus-card-image,
+  .nexus-card-image-container.aspect-ratio-4-3 .nexus-card-image,
+  .nexus-card-image-container.aspect-ratio-3-2 .nexus-card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Contenido de texto */
+  .nexus-card-content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    flex: 1 1 auto;
+  }
+
+  .nexus-card-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.3;
+  }
+
+  .nexus-card-text {
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  .nexus-card-button {
+    margin-top: auto;
+    padding: 0.5rem 1.25rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    align-self: flex-start;
+  }
+
+  .nexus-card-button.btn-primary {
+    background-color: var(--color-primary-500, #3d5afe);
+    color: white;
+  }
+
+  .nexus-card-button.btn-secondary {
+    background-color: var(--color-secondary-500, #00c853);
+    color: white;
+  }
+
+  .nexus-card-button.btn-outline {
+    background-color: transparent;
+    border: 1px solid currentColor;
+    color: var(--color-primary-500, #3d5afe);
+  }
+
+  .nexus-card-button.btn-text {
+    background-color: transparent;
+    padding-left: 0;
+    padding-right: 0;
+    color: var(--color-primary-500, #3d5afe);
+  }
+
+  .nexus-card-button:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+  }
+
+  /* Estilos de tarjeta */
+  .wp-block-nexus-card.card-style-default {
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .wp-block-nexus-card.card-style-border {
+    border: 1px solid;
+    box-shadow: none;
+  }
+
+  .wp-block-nexus-card.card-style-flat {
+    border: none;
+    box-shadow: none;
+  }
+
+  .wp-block-nexus-card.card-style-raised {
+    border: none;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  }
+
+  .wp-block-nexus-card.card-style-minimal {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+  }
+
+  /* Efectos hover */
+  .wp-block-nexus-card.hover-lift:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .wp-block-nexus-card.hover-scale:hover {
+    transform: scale(1.03);
+  }
+
+  .wp-block-nexus-card.hover-border:hover {
+    border-color: var(--color-primary-500, #3d5afe);
+  }
+
+  .wp-block-nexus-card.hover-shadow:hover {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  }
+
+  .wp-block-nexus-card.hover-zoom-image:hover .nexus-card-image {
+    transform: scale(1.1);
+  }
+
+  .wp-block-nexus-card.hover-shine {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .wp-block-nexus-card.hover-shine::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 100%);
+    transform: skewX(-25deg);
+    z-index: 1;
+    pointer-events: none;
+    visibility: hidden;
+  }
+
+  .wp-block-nexus-card.hover-shine:hover::before {
+    animation: shine 0.75s;
+    visibility: visible;
+  }
+
+  @keyframes shine {
+    100% {
+      left: 125%;
+    }
+  }
+
+  /* Animaciones de scroll */
+  .wp-block-nexus-card.anim-fade-in {
+    opacity: 0;
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .wp-block-nexus-card.anim-slide-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .wp-block-nexus-card.anim-slide-left {
+    opacity: 0;
+    transform: translateX(40px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .wp-block-nexus-card.anim-scale {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .wp-block-nexus-card.is-animated {
+    opacity: 1;
+    transform: translateY(0) translateX(0) scale(1);
+  }
+
+  /* Soporte para scroll-driven animations */
+  @supports (animation-timeline: scroll()) {
+    .wp-block-nexus-card.scroll-anim {
+      animation-timeline: scroll();
+      animation-range: entry 5% cover 15%;
+    }
+
+    .wp-block-nexus-card.scroll-fade {
+      opacity: 0;
+      animation-name: scrollFade;
+      animation-fill-mode: forwards;
+    }
+
+    .wp-block-nexus-card.scroll-slide-up {
+      opacity: 0;
+      transform: translateY(40px);
+      animation-name: scrollSlideUp;
+      animation-fill-mode: forwards;
+    }
+
+    @keyframes scrollFade {
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes scrollSlideUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  }
+
+  /* Soporte para prefers-reduced-motion */
+  @media (prefers-reduced-motion: reduce) {
+    .wp-block-nexus-card,
+    .wp-block-nexus-card::before,
+    .wp-block-nexus-card .nexus-card-image,
+    .nexus-card-button {
+      transition: none !important;
+      animation: none !important;
+      transform: none !important;
+    }
+
+    .wp-block-nexus-card.anim-fade-in,
+    .wp-block-nexus-card.anim-slide-up,
+    .wp-block-nexus-card.anim-slide-left,
+    .wp-block-nexus-card.anim-scale,
+    .wp-block-nexus-card.scroll-fade,
+    .wp-block-nexus-card.scroll-slide-up {
+      opacity: 1;
+      transform: none;
+    }
+  }

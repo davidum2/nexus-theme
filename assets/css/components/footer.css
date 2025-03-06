@@ -1,0 +1,360 @@
+/**
+ * Footer Styles
+ *
+ * Estilos para el pie de página del tema Nexus.
+ */
+
+ :root {
+    --footer-bg-color: var(--color-gray-900);
+    --footer-text-color: var(--color-gray-300);
+    --footer-heading-color: var(--color-white);
+    --footer-link-color: var(--color-gray-300);
+    --footer-link-hover-color: var(--color-white);
+    --footer-border-color: var(--color-gray-800);
+    --footer-padding-y: var(--space-2xl);
+    --footer-padding-x: var(--space-lg);
+    --footer-widget-spacing: var(--space-xl);
+    --footer-bottom-padding: var(--space-md);
+  }
+
+  /* Footer principal */
+  .site-footer {
+    background-color: var(--footer-bg-color);
+    color: var(--footer-text-color);
+    padding: var(--footer-padding-y) var(--footer-padding-x);
+    font-size: var(--font-size-sm);
+    line-height: 1.6;
+  }
+
+  /* Container para el contenido del footer */
+  .footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--footer-widget-spacing);
+    margin-bottom: var(--space-xl);
+  }
+
+  /* Widgets de footer */
+  .footer-widget {
+    margin-bottom: var(--space-lg);
+  }
+
+  .footer-widget:last-child {
+    margin-bottom: 0;
+  }
+
+  .footer-widget-title {
+    color: var(--footer-heading-color);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+    margin-top: 0;
+    margin-bottom: var(--space-md);
+    padding-bottom: var(--space-sm);
+    border-bottom: 1px solid var(--footer-border-color);
+  }
+
+  /* Listas en footer */
+  .footer-widget ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .footer-widget ul li {
+    margin-bottom: var(--space-sm);
+  }
+
+  .footer-widget ul li:last-child {
+    margin-bottom: 0;
+  }
+
+  .footer-widget a {
+    color: var(--footer-link-color);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .footer-widget a:hover {
+    color: var(--footer-link-hover-color);
+    text-decoration: underline;
+  }
+
+  /* Widget de contacto */
+  .footer-contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .footer-contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-sm);
+  }
+
+  .footer-contact-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+
+  /* Widget de newsletter */
+  .footer-newsletter {
+    max-width: 400px;
+  }
+
+  .footer-newsletter p {
+    margin-bottom: var(--space-md);
+  }
+
+  .footer-newsletter-form {
+    display: flex;
+    gap: var(--space-sm);
+  }
+
+  .footer-newsletter-input {
+    flex: 1;
+    padding: var(--space-sm);
+    border: 1px solid var(--footer-border-color);
+    border-radius: var(--border-radius-sm);
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--footer-text-color);
+  }
+
+  .footer-newsletter-input:focus {
+    outline: none;
+    border-color: var(--color-primary-500);
+  }
+
+  .footer-newsletter-button {
+    background-color: var(--color-primary-500);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius-sm);
+    padding: var(--space-sm) var(--space-md);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+
+  .footer-newsletter-button:hover {
+    background-color: var(--color-primary-600);
+  }
+
+  /* Widget de redes sociales */
+  .footer-social-links {
+    display: flex;
+    gap: var(--space-md);
+    margin-top: var(--space-md);
+  }
+
+  .footer-social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--footer-link-color);
+    transition: all 0.2s ease;
+  }
+
+  .footer-social-link:hover {
+    background-color: var(--color-primary-500);
+    color: white;
+    transform: translateY(-3px);
+  }
+
+  /* Logo en footer */
+  .footer-logo {
+    display: block;
+    margin-bottom: var(--space-md);
+    max-width: 150px;
+    height: auto;
+  }
+
+  /* Bottom footer (copyright, etc.) */
+  .footer-bottom {
+    border-top: 1px solid var(--footer-border-color);
+    padding-top: var(--footer-bottom-padding);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-copyright {
+    margin: 0;
+  }
+
+  /* Menú de footer */
+  .footer-menu {
+    display: flex;
+    gap: var(--space-lg);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .footer-menu-link {
+    color: var(--footer-link-color);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .footer-menu-link:hover {
+    color: var(--footer-link-hover-color);
+  }
+
+  /* Footer con grid de 4 columnas */
+  .footer-grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  /* Footer con logo en columna grande */
+  .footer-logo-left {
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+  }
+
+  /* Footer minimalista */
+  .footer-minimal {
+    text-align: center;
+    padding: var(--space-xl) var(--footer-padding-x);
+  }
+
+  .footer-minimal .footer-content {
+    display: block;
+    margin-bottom: var(--space-lg);
+  }
+
+  .footer-minimal .footer-logo {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .footer-minimal .footer-social-links {
+    justify-content: center;
+    margin-bottom: var(--space-lg);
+  }
+
+  .footer-minimal .footer-copyright {
+    text-align: center;
+  }
+
+  .footer-minimal .footer-menu {
+    justify-content: center;
+    margin-bottom: var(--space-md);
+  }
+
+  /* Footer con fondo degradado */
+  .footer-gradient {
+    background: linear-gradient(to bottom, var(--color-gray-800), var(--color-gray-900));
+  }
+
+  /* Footer con patrón de fondo */
+  .footer-pattern {
+    position: relative;
+  }
+
+  .footer-pattern::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23333333' fill-opacity='0.1' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.1;
+    pointer-events: none;
+  }
+
+  /* Responsividad */
+  @media (max-width: 992px) {
+    .footer-content {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer-grid-4,
+    .footer-logo-left {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer-bottom {
+      flex-direction: column;
+      gap: var(--space-md);
+      text-align: center;
+    }
+
+    .footer-menu {
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .footer-content {
+      grid-template-columns: 1fr;
+    }
+
+    .footer-grid-4,
+    .footer-logo-left {
+      grid-template-columns: 1fr;
+    }
+
+    .footer-newsletter-form {
+      flex-direction: column;
+    }
+
+    .footer-social-links {
+      justify-content: flex-start;
+      flex-wrap: wrap;
+    }
+
+    .footer-bottom {
+      text-align: center;
+    }
+
+    .footer-padding-y {
+      padding-top: var(--space-xl);
+      padding-bottom: var(--space-xl);
+    }
+  }
+
+  /* Temas claros */
+  .footer-light {
+    --footer-bg-color: var(--color-gray-100);
+    --footer-text-color: var(--color-gray-700);
+    --footer-heading-color: var(--color-gray-900);
+    --footer-link-color: var(--color-gray-700);
+    --footer-link-hover-color: var(--color-primary-500);
+    --footer-border-color: var(--color-gray-200);
+  }
+
+  .footer-light .footer-newsletter-input {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+
+  .footer-light .footer-social-link {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+
+  /* Tema oscuro para sitios con tema claro por defecto */
+  @media (prefers-color-scheme: dark) {
+    .footer-light {
+      --footer-bg-color: var(--color-gray-900);
+      --footer-text-color: var(--color-gray-300);
+      --footer-heading-color: var(--color-white);
+      --footer-link-color: var(--color-gray-300);
+      --footer-link-hover-color: var(--color-white);
+      --footer-border-color: var(--color-gray-800);
+    }
+
+    .footer-light .footer-newsletter-input {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .footer-light .footer-social-link {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+  }

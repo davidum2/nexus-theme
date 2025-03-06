@@ -1,0 +1,185 @@
+/**
+ * Color Utilities
+ *
+ * Sistema de colores para el tema Nexus, incluyendo variables,
+ * clases de utilidad y soporte para esquemas de color avanzados.
+ */
+
+ :root {
+    /* Colores primarios y secundarios */
+    --color-primary-50: #e8eaff;
+    --color-primary-100: #c0cfff;
+    --color-primary-200: #96b1ff;
+    --color-primary-300: #6b94ff;
+    --color-primary-400: #4d7fff;
+    --color-primary-500: #3d5afe; /* Color primario principal */
+    --color-primary-600: #384fed;
+    --color-primary-700: #3140db;
+    --color-primary-800: #2933ca;
+    --color-primary-900: #0026ca;
+
+    --color-secondary-50: #e0f7ea;
+    --color-secondary-100: #b3eacb;
+    --color-secondary-200: #80dca9;
+    --color-secondary-300: #4dce87;
+    --color-secondary-400: #26c46d;
+    --color-secondary-500: #00c853; /* Color secundario principal */
+    --color-secondary-600: #00b74d;
+    --color-secondary-700: #00a344;
+    --color-secondary-800: #00903c;
+    --color-secondary-900: #006e2e;
+
+    /* Escala de grises */
+    --color-gray-50: #fafafa;
+    --color-gray-100: #f5f5f5;
+    --color-gray-200: #eeeeee;
+    --color-gray-300: #e0e0e0;
+    --color-gray-400: #bdbdbd;
+    --color-gray-500: #9e9e9e;
+    --color-gray-600: #757575;
+    --color-gray-700: #616161;
+    --color-gray-800: #424242;
+    --color-gray-900: #212121;
+
+    /* Alias para facilitar el uso */
+    --color-white: #ffffff;
+    --color-black: #000000;
+    --color-light: var(--color-gray-100);
+    --color-dark: var(--color-gray-900);
+
+    /* Colores de estado */
+    --color-success: #4caf50;
+    --color-info: #2196f3;
+    --color-warning: #ff9800;
+    --color-error: #f44336;
+
+    /* Colores para texto */
+    --color-text-primary: var(--color-gray-900);
+    --color-text-secondary: var(--color-gray-700);
+    --color-text-disabled: var(--color-gray-500);
+    --color-text-hint: var(--color-gray-600);
+    --color-text-on-primary: white;
+    --color-text-on-secondary: white;
+
+    /* Colores para bordes */
+    --color-border-light: var(--color-gray-300);
+    --color-border-medium: var(--color-gray-400);
+    --color-border-dark: var(--color-gray-500);
+  }
+
+  /* Clases de texto con color */
+  .text-primary { color: var(--color-primary-500); }
+  .text-secondary { color: var(--color-secondary-500); }
+  .text-dark { color: var(--color-dark); }
+  .text-light { color: var(--color-light); }
+  .text-gray { color: var(--color-gray-500); }
+  .text-white { color: var(--color-white); }
+  .text-black { color: var(--color-black); }
+  .text-success { color: var(--color-success); }
+  .text-info { color: var(--color-info); }
+  .text-warning { color: var(--color-warning); }
+  .text-error { color: var(--color-error); }
+
+  /* Clases de fondo con color */
+  .bg-primary { background-color: var(--color-primary-500); }
+  .bg-primary-light { background-color: var(--color-primary-100); }
+  .bg-primary-dark { background-color: var(--color-primary-800); }
+  .bg-secondary { background-color: var(--color-secondary-500); }
+  .bg-secondary-light { background-color: var(--color-secondary-100); }
+  .bg-secondary-dark { background-color: var(--color-secondary-800); }
+  .bg-light { background-color: var(--color-light); }
+  .bg-dark { background-color: var(--color-dark); }
+  .bg-white { background-color: var(--color-white); }
+  .bg-gray { background-color: var(--color-gray-500); }
+  .bg-gray-light { background-color: var(--color-gray-200); }
+  .bg-gray-dark { background-color: var(--color-gray-800); }
+  .bg-success { background-color: var(--color-success); }
+  .bg-info { background-color: var(--color-info); }
+  .bg-warning { background-color: var(--color-warning); }
+  .bg-error { background-color: var(--color-error); }
+
+  /* Clases de borde con color */
+  .border-primary { border-color: var(--color-primary-500); }
+  .border-secondary { border-color: var(--color-secondary-500); }
+  .border-light { border-color: var(--color-border-light); }
+  .border-medium { border-color: var(--color-border-medium); }
+  .border-dark { border-color: var(--color-border-dark); }
+
+  /* Opacidad para superposiciones */
+  .overlay-dark-10 { background-color: rgba(0, 0, 0, 0.1); }
+  .overlay-dark-20 { background-color: rgba(0, 0, 0, 0.2); }
+  .overlay-dark-30 { background-color: rgba(0, 0, 0, 0.3); }
+  .overlay-dark-40 { background-color: rgba(0, 0, 0, 0.4); }
+  .overlay-dark-50 { background-color: rgba(0, 0, 0, 0.5); }
+  .overlay-dark-60 { background-color: rgba(0, 0, 0, 0.6); }
+  .overlay-dark-70 { background-color: rgba(0, 0, 0, 0.7); }
+  .overlay-dark-80 { background-color: rgba(0, 0, 0, 0.8); }
+  .overlay-dark-90 { background-color: rgba(0, 0, 0, 0.9); }
+
+  .overlay-light-10 { background-color: rgba(255, 255, 255, 0.1); }
+  .overlay-light-20 { background-color: rgba(255, 255, 255, 0.2); }
+  .overlay-light-30 { background-color: rgba(255, 255, 255, 0.3); }
+  .overlay-light-40 { background-color: rgba(255, 255, 255, 0.4); }
+  .overlay-light-50 { background-color: rgba(255, 255, 255, 0.5); }
+  .overlay-light-60 { background-color: rgba(255, 255, 255, 0.6); }
+  .overlay-light-70 { background-color: rgba(255, 255, 255, 0.7); }
+  .overlay-light-80 { background-color: rgba(255, 255, 255, 0.8); }
+  .overlay-light-90 { background-color: rgba(255, 255, 255, 0.9); }
+
+  /* Gradientes predefinidos */
+  .gradient-primary {
+    background: linear-gradient(135deg, var(--color-primary-500) 0%, var(--color-primary-700) 100%);
+  }
+
+  .gradient-secondary {
+    background: linear-gradient(135deg, var(--color-secondary-500) 0%, var(--color-secondary-700) 100%);
+  }
+
+  .gradient-primary-secondary {
+    background: linear-gradient(135deg, var(--color-primary-500) 0%, var(--color-secondary-500) 100%);
+  }
+
+  .gradient-dark {
+    background: linear-gradient(135deg, var(--color-gray-800) 0%, var(--color-gray-900) 100%);
+  }
+
+  .gradient-light {
+    background: linear-gradient(135deg, var(--color-white) 0%, var(--color-gray-200) 100%);
+  }
+
+  /* Tema oscuro */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-text-primary: var(--color-gray-100);
+      --color-text-secondary: var(--color-gray-300);
+      --color-text-disabled: var(--color-gray-500);
+      --color-text-hint: var(--color-gray-400);
+
+      --color-border-light: var(--color-gray-700);
+      --color-border-medium: var(--color-gray-600);
+      --color-border-dark: var(--color-gray-500);
+
+      --color-light: var(--color-gray-800);
+      --color-dark: var(--color-gray-100);
+    }
+
+    /* Invertir algunas clases de utilidad para el tema oscuro */
+    .bg-light { background-color: var(--color-gray-800); }
+    .bg-dark { background-color: var(--color-gray-200); }
+    .text-dark { color: var(--color-gray-200); }
+    .text-light { color: var(--color-gray-800); }
+  }
+
+  /* Soporte para esquemas de color modernos */
+  @supports (color: lch(0% 0 0)) {
+    :root {
+      /* Usar LCH para colores más precisos y uniformes en todos los dispositivos */
+      --color-primary-500: lch(50% 80 270); /* Azul vívido */
+      --color-secondary-500: lch(70% 80 140); /* Verde vívido */
+
+      --color-success: lch(65% 60 140); /* Verde brillante */
+      --color-info: lch(55% 70 250); /* Azul informativo */
+      --color-warning: lch(70% 80 80); /* Naranja de advertencia */
+      --color-error: lch(55% 90 30); /* Rojo error */
+    }
+  }
