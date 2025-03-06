@@ -110,20 +110,24 @@ add_action('init', 'nexus_register_block_patterns');
  */
 function nexus_register_blocks()
 {
-    // Verificar si Gutenberg está activo
     if (!function_exists('register_block_type')) {
         return;
     }
 
-    // Registrar el bloque de tarjeta (card)
-    register_block_type(NEXUS_DIR . 'inc/blocks/card');
+    $card_path = NEXUS_DIR . 'inc/blocks/card';
+    error_log('Intentando registrar el bloque Card desde: ' . $card_path);
 
-    // Registrar bloque FAQ (si existe)
-    if (file_exists(NEXUS_DIR . 'inc/blocks/faq/block.json')) {
-        register_block_type(NEXUS_DIR . 'inc/blocks/faq');
+    if (file_exists($card_path . '/block.json')) {
+        error_log('El archivo block.json existe');
+        $block = register_block_type($card_path);
+        if ($block) {
+            error_log('Bloque Card registrado exitosamente');
+        } else {
+            error_log('Error al registrar el bloque Card');
+        }
+    } else {
+        error_log('Error: No se encontró block.json en ' . $card_path);
     }
-
-    // Aquí puedes agregar más bloques a medida que los desarrolles
 }
 add_action('init', 'nexus_register_blocks');
 
@@ -132,15 +136,15 @@ add_action('init', 'nexus_register_blocks');
  */
 function nexus_editor_block_assets()
 {
-    // Scripts y estilos específicos para el editor
-    wp_enqueue_style(
-        'nexus-blocks-editor-style',
-        get_template_directory_uri() . '/assets/css/editor-blocks.css',
-        array('wp-edit-blocks'),
-        NEXUS_VERSION
-    );
+    // // Scripts y estilos específicos para el editor
+    // wp_enqueue_style(
+    //     'nexus-blocks-editor-style',
+    //     get_template_directory_uri() . '/assets/css/editor-blocks.css',
+    //     array('wp-edit-blocks'),
+    //     NEXUS_VERSION
+    // );
 }
-add_action('enqueue_block_editor_assets', 'nexus_editor_block_assets');
+// add_action('enqueue_block_editor_assets', 'nexus_editor_block_assets');
 
 /**
  * Crea un archivo CSS para los bloques en el editor
@@ -224,3 +228,17 @@ function nexus_script_loader_tag($tag, $handle, $src)
     return $tag;
 }
 add_filter('script_loader_tag', 'nexus_script_loader_tag', 10, 3);
+
+
+add_action('admin_footer', function() {
+    if (!is_admin() || !function_exists('get_current_screen')) {
+        return;
+    }
+
+    $screen = get_current_screen();
+    if (!$screen || !$screen->is_block_editor) {
+        return;
+    }
+
+    echo '<script>console.log("Bloques registrados:", wp.blocks.getBlockTypes());</script>';
+});

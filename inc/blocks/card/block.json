@@ -1,101 +1,115 @@
 {
-    "$schema": "https://schemas.wp.org/trunk/block.json",
-    "apiVersion": 2,
-    "name": "nexus/card",
-    "title": "Nexus Card",
-    "category": "design",
-    "icon": "cover-image",
-    "description": "A customizable card block with various styles and animations.",
-    "keywords": ["card", "box", "container", "feature"],
-    "version": "1.0.0",
-    "textdomain": "nexus",
-    "supports": {
-      "html": false,
-      "align": ["wide", "full"],
-      "color": {
-        "background": true,
-        "text": true,
-        "gradients": true
-      },
-      "spacing": {
-        "margin": true,
-        "padding": true
-      }
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "nexus/card",
+  "title": "Nexus Card",
+  "category": "design",
+  "icon": "cover-image",
+  "description": "A customizable card block with various styles and animations.",
+  "keywords": ["card", "box", "container", "feature"],
+  "version": "1.0.0",
+  "textdomain": "nexus",
+  "supports": {
+    "html": false,
+    "align": ["wide", "full"],
+    "color": {
+      "background": true,
+      "text": true,
+      "gradients": true
     },
-    "attributes": {
-      "title": {
-        "type": "string",
-        "default": "Card Title"
-      },
-      "content": {
-        "type": "string",
-        "default": "This is a customizable card that showcases the advanced CSS features of the Nexus theme."
-      },
-      "mediaId": {
-        "type": "number"
-      },
-      "mediaUrl": {
-        "type": "string"
-      },
-      "mediaAlt": {
-        "type": "string",
-        "default": ""
-      },
-      "imagePosition": {
-        "type": "string",
-        "default": "top"
-      },
-      "cardStyle": {
-        "type": "string",
-        "default": "default"
-      },
-      "hoverEffect": {
-        "type": "string",
-        "default": "none"
-      },
-      "animationEffect": {
-        "type": "string",
-        "default": "none"
-      },
-      "aspectRatio": {
-        "type": "string",
-        "default": "16-9"
-      },
-      "buttonText": {
-        "type": "string",
-        "default": "Learn More"
-      },
-      "buttonUrl": {
-        "type": "string",
-        "default": "#"
-      },
-      "buttonStyle": {
-        "type": "string",
-        "default": "primary"
-      },
-      "showButton": {
-        "type": "boolean",
-        "default": true
-      },
-      "borderRadius": {
-        "type": "number",
-        "default": 8
-      },
-      "boxShadow": {
-        "type": "boolean",
-        "default": true
-      },
-      "borderWidth": {
-        "type": "number",
-        "default": 0
-      },
-      "borderColor": {
-        "type": "string",
-        "default": "#e0e0e0"
-      }
+    "spacing": {
+      "margin": true,
+      "padding": true
+    }
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "source": "html",
+      "selector": "h2"
     },
-    "editorScript": "file:./edit.js",
-    "editorStyle": "file:./editor.css",
-    "style": "file:./style.css",
-    "script": "file:./view.js"
-  }
+    "content": {
+      "type": "string",
+      "source": "html",
+      "selector": "p"
+    },
+    "image": {
+      "type": "string",
+      "source": "attribute",
+      "selector": "img",
+      "attribute": "src"
+    },
+    "imageAlt": {
+      "type": "string",
+      "source": "attribute",
+      "selector": "img",
+      "attribute": "alt"
+    },
+    "imageWidth": {
+      "type": "number",
+      "default": 300
+    },
+    "imageHeight": {
+      "type": "number",
+      "default": 200
+    },
+    "imagePosition": {
+      "type": "string",
+      "default": "left"
+    },
+    "imageSize": {
+      "type": "string",
+      "default": "cover"
+    },
+    "imageRepeat": {
+      "type": "string",
+      "default": "no-repeat"
+    },
+    "imageAttachment": {
+      "type": "string",
+      "default": "scroll"
+    },
+    "imageOverlay": {
+      "type": "string",
+      "default": "none"
+    },
+    "imageOverlayColor": {
+      "type": "string",
+      "default": "rgba(0, 0, 0, 0.5)"
+    },
+    "imageOverlayOpacity": {
+      "type": "number",
+      "default": 0.5
+    },
+    "imageBorderRadius": {
+      "type": "number",
+      "default": 0
+    },
+    "imageShadow": {
+      "type": "string",
+      "default": "none"
+    },
+    "imageAnimation": {
+      "type": "string",
+      "default": "none"
+    },
+    "imageAnimationDuration": {
+      "type": "number",
+      "default": 1
+    },
+    "imageAnimationDelay": {
+      "type": "number",
+      "default": 0
+    },
+    "imageAnimationTiming": {
+      "type": "string",
+      "default": "ease"
+    }
+
+
+  },
+  "editorScript": "file:./edit.js",
+  "editorStyle": "file:./editor.css",
+  "style": "file:./style.css",
+  "script": "file:./view.js"
+}

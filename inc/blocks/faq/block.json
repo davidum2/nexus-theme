@@ -1,0 +1,17 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 2,
+    "name": "nexus/faq",
+    "title": "FAQ",
+    "category": "text",
+    "icon": "editor-help",
+    "description": "Frequently Asked Questions block with schema markup.",
+    "supports": {
+      "html": false
+    },
+    "attributes": {
+
+    },
+    "editorScript": "file:./edit.js",
+    "style": "file:./style.css"
+  }

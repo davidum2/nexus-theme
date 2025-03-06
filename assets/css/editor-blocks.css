@@ -1,0 +1,15 @@
+/**
+ * Nexus Theme - Editor Blocks CSS
+ * Estilos adicionales para los bloques personalizados en el editor
+ */
+
+/* Mejora la experiencia de edición en general */
+.block-editor-block-list__block {
+    margin-top: 28px;
+    margin-bottom: 28px;
+}
+
+/* Estilos específicos para bloques personalizados */
+.wp-block-nexus-card {
+    /* Los estilos específicos se cargan desde el bloque */
+}
